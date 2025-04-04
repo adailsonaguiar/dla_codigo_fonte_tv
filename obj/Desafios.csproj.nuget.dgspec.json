@@ -1,0 +1,67 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/adailsonaguiar/dev/c#/DLA - Codigo Fonte/Desafios.csproj": {}
+  },
+  "projects": {
+    "/home/adailsonaguiar/dev/c#/DLA - Codigo Fonte/Desafios.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/adailsonaguiar/dev/c#/DLA - Codigo Fonte/Desafios.csproj",
+        "projectName": "Desafios",
+        "projectPath": "/home/adailsonaguiar/dev/c#/DLA - Codigo Fonte/Desafios.csproj",
+        "packagesPath": "/home/adailsonaguiar/.nuget/packages/",
+        "outputPath": "/home/adailsonaguiar/dev/c#/DLA - Codigo Fonte/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/adailsonaguiar/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/adailsonaguiar/.dotnet/sdk/9.0.202/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
