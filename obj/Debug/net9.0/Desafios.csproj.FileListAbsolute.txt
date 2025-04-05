@@ -12,3 +12,4 @@
 /home/adailsonaguiar/dev/c#/DLA - Codigo Fonte/obj/Debug/net9.0/Desafios.pdb
 /home/adailsonaguiar/dev/c#/DLA - Codigo Fonte/obj/Debug/net9.0/Desafios.genruntimeconfig.cache
 /home/adailsonaguiar/dev/c#/DLA - Codigo Fonte/obj/Debug/net9.0/ref/Desafios.dll
+/home/adailsonaguiar/dev/c#/DLA - Codigo Fonte/obj/Debug/net9.0/Desafios.sourcelink.json
