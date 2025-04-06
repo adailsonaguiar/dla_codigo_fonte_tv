@@ -46,4 +46,19 @@ public static class Day4
         return "Excellent";
     }
 
+    public static string CheckParkingGateStatus(int status)
+    {
+        switch (status)
+        {
+            case 1:
+                return "The gate is close";
+            case 2:
+                return "The gate is open";
+            case 3:
+                return "The gate is on maintenance";
+            default:
+                return "Invalid status";
+        }
+    }
+
 }

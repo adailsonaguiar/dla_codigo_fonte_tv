@@ -32,4 +32,20 @@ public class Day4Tests
         var result = Day4.calculateStudentPerformance(6);
         Assert.Equal("Regular", result);
     }
+
+    [Fact]
+    public void TestCheckParkingGateStatus_Status()
+    {
+        var result1 = Day4.CheckParkingGateStatus(1);
+        Assert.Equal("The gate is close", result1);
+
+        var result2 = Day4.CheckParkingGateStatus(2);
+        Assert.Equal("The gate is open", result2);
+
+        var result3 = Day4.CheckParkingGateStatus(3);
+        Assert.Equal("The gate is on maintenance", result3);
+
+        var result4 = Day4.CheckParkingGateStatus(6);
+        Assert.Equal("Invalid status", result4);
+    }
 }
