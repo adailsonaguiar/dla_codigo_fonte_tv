@@ -1,4 +1,4 @@
-﻿public static class Day3
+public static class Day3
 {
     public static string isOdd(int num)
     {
