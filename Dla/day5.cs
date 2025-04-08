@@ -8,7 +8,7 @@ public static class Day5
 
         for (int i = 0; i < yearQtd; i++)
         {
-            accValue = accValue + (accValue * taxYear);
+            accValue += (accValue * taxYear);
 
             Console.WriteLine(accValue);
         }
@@ -17,43 +17,38 @@ public static class Day5
 
     }
 
-    public static string calculateStudentPerformance(double note)
+    public static int getYearToDoubleValue(double rateReturnByYear, double value)
     {
-        if (note <= 5)
+        bool valueDoubled = false;
+        double taxYear = rateReturnByYear / 100;
+        double accValue = value;
+        int year = 0;
+
+        while (valueDoubled == false)
         {
-            return "Insufficient";
+            accValue += (accValue * taxYear);
+
+            year += 1;
+
+            if (accValue >= (value * 2))
+            {
+                valueDoubled = true;
+            }
         }
 
-        if (note <= 6)
-        {
-            return "Regular";
-        }
-
-        if (note <= 7.5)
-        {
-            return "Good";
-        }
-
-        if (note <= 9)
-        {
-            return "Very good";
-        }
-
-        return "Excellent";
+        return year;
     }
 
-    public static string CheckParkingGateStatus(int status)
+    public static void getInstallments(int installments, double purchaseValue)
     {
-        switch (status)
+        double accValue = purchaseValue;
+        double installmentValue = purchaseValue / installments;
+
+        while (accValue > 0)
         {
-            case 1:
-                return "The gate is close";
-            case 2:
-                return "The gate is open";
-            case 3:
-                return "The gate is on maintenance";
-            default:
-                return "Invalid status";
+            accValue -= installmentValue;
+            Console.WriteLine("Valor da parcela:" + installmentValue);
+            Console.WriteLine("Valor restante:" + accValue);
         }
     }
 
