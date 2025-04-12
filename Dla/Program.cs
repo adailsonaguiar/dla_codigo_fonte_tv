@@ -9,11 +9,5 @@ Console.WriteLine("Hello, World!");
 // Console.WriteLine(account1.getBalance());
 // Console.WriteLine(account2.getBalance());
 
-QueueStack queue = new QueueStack();
-Console.WriteLine(queue.AddItemToQueue());
-Console.WriteLine(queue.AddItemToQueue());
-Console.WriteLine(queue.AddItemToQueue());
-Console.WriteLine(queue.AddItemToQueue());
-Console.WriteLine(queue.AddItemToQueue());
-Console.WriteLine(queue.RemoveOneItemFromQueue());
-Console.WriteLine(queue.RemoveOneItemFromQueue());
+StackList stackList = new StackList();
+stackList.PutOnStack(["Produto 1", "Produto 2", "Produto 3", "produto 4", "produto 5", "produto 6", "produto 7", "produto 8", "produto 9", "produto 10", "produto 11"]);
