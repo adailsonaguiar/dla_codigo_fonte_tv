@@ -1,13 +1,35 @@
 public class BrowserStack
 {
-    public List<string> backStack = new List<string>();
-    public List<string> fowardStack = new List<string>();
+    private List<string> backStack = new List<string>();
+    private List<string> fowardStack = new List<string>();
     public string CurrentPage = "";
+
+    public string[] GetFowardStack()
+    {
+        List<string> list = fowardStack;
+        list.Reverse();
+        return list.ToArray();
+    }
+
+    public string[] GetBackStack()
+    {
+        List<string> list = backStack;
+        return list.ToArray();
+    }
 
     public void NavigateToPage(string pageName)
     {
+        fowardStack = [];
+
+        if (CurrentPage == "")
+        {
+            CurrentPage = pageName;
+            return;
+        }
+
+        backStack.Add(CurrentPage);
         CurrentPage = pageName;
-        backStack.Add(pageName);
+
     }
 
     public void BackToPage()
@@ -17,8 +39,8 @@ public class BrowserStack
             return;
         }
 
-        CurrentPage = backStack.Last();
         fowardStack.Add(CurrentPage);
+        CurrentPage = backStack.Last();
         backStack.RemoveAt(backStack.Count - 1);
     }
 
@@ -29,8 +51,8 @@ public class BrowserStack
             return;
         }
 
-        CurrentPage = fowardStack.First();
-        fowardStack.Remove(CurrentPage);
-        NavigateToPage(CurrentPage);
+        backStack.Add(CurrentPage);
+        CurrentPage = fowardStack.Last();
+        fowardStack.RemoveAt(fowardStack.Count - 1);
     }
 }

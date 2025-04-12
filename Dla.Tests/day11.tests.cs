@@ -6,36 +6,53 @@ namespace Desafios.Tests;
 public class Day11Tests
 {
     [Fact]
-    public void getIndexOf_Test()
+    public void NavigateToPage_Test()
     {
-        var list = new ListImplementation([5, 2, 9]);
-        var result = list.getIndexOf(9);
-        Assert.Equal(2, result);
+        var browserStack = new BrowserStack();
+        browserStack.NavigateToPage("home");
+        browserStack.NavigateToPage("profile");
+        browserStack.NavigateToPage("config");
 
-        var result2 = list.getIndexOf(10);
-        Assert.Equal(-1, result2);
+        Assert.Equal(["home", "profile"], browserStack.GetBackStack());
+        Assert.Equal("config", browserStack.CurrentPage);
     }
 
     [Fact]
-    public void HasIncludes_Test()
+    public void BackToPage_Test()
     {
-        var list = new ListImplementation([5, 2, 9]);
-        var result = list.HasIncludes(9);
-        Assert.True(result);
+        var browserStack = new BrowserStack();
+        browserStack.NavigateToPage("home");
+        browserStack.NavigateToPage("profile");
+        browserStack.NavigateToPage("config");
+        browserStack.NavigateToPage("change_password");
+
+        browserStack.BackToPage();
+        browserStack.BackToPage();
+
+        Assert.Equal("profile", browserStack.CurrentPage);
+        Assert.Equal(["config", "change_password"], browserStack.GetFowardStack());
+        Assert.Equal(["home"], browserStack.GetBackStack());
     }
 
     [Fact]
-    public void GetLastIndexOf_Test()
+    public void AdvanceToPage_Test()
     {
-        var list = new ListImplementation([5, 2, 9, 9]);
-        Assert.Equal(3, list.GetLastIndexOf(9));
-        Assert.Equal(0, list.GetLastIndexOf(5));
-    }
+        var browserStack = new BrowserStack();
+        browserStack.NavigateToPage("home");
+        browserStack.NavigateToPage("profile");
+        browserStack.NavigateToPage("config");
+        browserStack.NavigateToPage("change_password");
 
-    [Fact]
-    public void SliceImplementation_Test()
-    {
-        var list = new ListImplementation([5, 2, 9, 9, 8, 0]);
-        Assert.Equal([2, 9, 9], list.SliceImplementation(1, 3));
+        browserStack.BackToPage();
+        browserStack.BackToPage();
+
+        Assert.Equal("profile", browserStack.CurrentPage);
+        Assert.Equal(["home"], browserStack.GetBackStack());
+
+        browserStack.AdvanceToPage();
+
+        Assert.Equal(["home", "profile"], browserStack.GetBackStack());
+        Assert.Equal(["change_password"], browserStack.GetFowardStack());
+        Assert.Equal("config", browserStack.CurrentPage);
     }
 }
