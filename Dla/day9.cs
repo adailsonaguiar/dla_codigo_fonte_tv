@@ -9,48 +9,41 @@ public class ListImplementation
 
     public int getIndexOf(int value)
     {
-        var returnIndex = -1;
-
         for (int i = 0; i < arr.Length; i++)
         {
             if (arr[i] == value)
             {
-                returnIndex = i;
+                return i;
             }
         }
 
-        return returnIndex;
+        return -1;
     }
 
     public bool HasIncludes(int value)
     {
-        var returnIndex = false;
-
-        for (int i = 0; i < arr.Length; i++)
+        for (var i = 0; i < arr.Length; i++)
         {
             if (arr[i] == value)
             {
-                returnIndex = true;
+                return true;
             }
         }
 
-        return returnIndex;
+        return false;
     }
 
     public int GetLastIndexOf(int value)
     {
-        var returnIndex = -1;
-
         for (int i = arr.Length - 1; i >= 0; i--)
         {
             if (arr[i] == value)
             {
-                returnIndex = i;
-                break;
+                return i;
             }
         }
 
-        return returnIndex;
+        return -1;
     }
 
     public int[] SliceImplementation(int init, int finish)
