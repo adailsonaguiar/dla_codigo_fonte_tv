@@ -2,11 +2,34 @@ public class Task
 {
     public string name { get; set; }
     public int priority { get; set; }
+
+    public Task(string name, int priority)
+    {
+        this.name = name;
+        this.priority = priority;
+    }
+
+    public override bool Equals(object? obj)
+    {
+        return obj is Task task &&
+               name == task.name &&
+               priority == task.priority;
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(name, priority);
+    }
 }
 
 public class DequeTasks
 {
     private List<Task> queue = new List<Task>();
+
+    public Task[] GetQueue()
+    {
+        return queue.ToArray();
+    }
 
     public void AddToEnd(Task task)
     {
@@ -46,7 +69,7 @@ public class DequeTasks
         queue.Add(task);
     }
 
-    public void increasePositionTask(string name)
+    public void IncreasePositionTask(string name)
     {
         Task task = queue.FirstOrDefault(t => t.name == name);
         if (task == null)
@@ -66,7 +89,7 @@ public class DequeTasks
         queue.Insert(taskIndex + 1, task);
     }
 
-    public void decreasePositionTask(string name)
+    public void DecreasePositionTask(string name)
     {
         Task task = queue.FirstOrDefault(t => t.name == name);
         if (task == null)
