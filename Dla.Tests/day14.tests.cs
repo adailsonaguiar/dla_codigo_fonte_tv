@@ -47,7 +47,6 @@ public class Day14Tests
 
         Checkout[] checkouts = market.GetCheckouts();
         string json = JsonSerializer.Serialize(checkouts, new JsonSerializerOptions { WriteIndented = true });
-        Console.WriteLine(json);
 
         Assert.Equal(8, market.GetTotalClients());
 
