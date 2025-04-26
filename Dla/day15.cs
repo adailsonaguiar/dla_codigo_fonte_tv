@@ -10,6 +10,18 @@ public class Node
         Value = value;
         Next = null;
     }
+
+    public override bool Equals(object? obj)
+    {
+        return obj is Node node &&
+               Value == node.Value &&
+               Next == node.Next;
+    }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(Value, Next);
+    }
 }
 
 public class LinkedList
@@ -86,6 +98,96 @@ public class LinkedList
                 }
             }
         }
+    }
+
+    public void RemoveFirst()
+    {
+        if (head == null) return;
+
+        head = head.Next;
+    }
+
+    public void DeleteAt(int index)
+    {
+        if (head == null)
+        {
+            return;
+        }
+
+        if (index == 0)
+        {
+            RemoveFirst();
+            return;
+        }
+
+        Node current = head;
+
+        Node? prevCurrent = null;
+
+        for (int i = 0; i < index + 1; i++)
+        {
+            if (i == index - 1)
+            {
+                prevCurrent = current;
+            }
+
+            if (i == index)
+            {
+                if (prevCurrent != null)
+                {
+                    prevCurrent.Next = current?.Next;
+                }
+            }
+
+            if (current?.Next != null)
+            {
+                current = current.Next;
+            }
+        }
+    }
+
+    public int SearchAt(int index)
+    {
+        if (head == null)
+        {
+            return -1;
+        }
+
+        if (index == 0)
+        {
+            return head.Value;
+        }
+
+        Node? current = head;
+        int count = 0;
+
+        while (current?.Next != null && count < index)
+        {
+            count++;
+            current = current?.Next;
+        }
+
+        return current.Value;
+    }
+
+    public int IndexOf(Node node)
+    {
+        Node? current = head;
+        int count = -1;
+        bool founded = false;
+
+        while (!founded)
+        {
+            if (current?.Value == node.Value)
+            {
+                founded = true;
+            }
+
+            current = current?.Next;
+            count++;
+        }
+
+        return count;
     }
 
     public int[] GetList()
