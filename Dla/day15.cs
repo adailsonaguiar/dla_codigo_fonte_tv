@@ -167,7 +167,12 @@ public class LinkedList
             current = current?.Next;
         }
 
-        return current.Value;
+        if (current?.Value != null)
+        {
+            return current.Value;
+        }
+
+        return -1;
     }
 
     public int IndexOf(Node node)
